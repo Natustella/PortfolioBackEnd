@@ -29,7 +29,8 @@ public class Skills {
     public Skills() {
     }
 
-    public Skills(int percent, String habilidad) {
+    public Skills(int id, int percent, String habilidad) {
+        this.id = id;
         this.percent = percent;
         this.habilidad = habilidad;
     }

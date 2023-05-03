@@ -24,12 +24,9 @@ public class Redes {
     public Redes() {
     }
 
-    public Redes(String url, String icoFont) {
+    public Redes(int id, String url, String icoFont) {
+        this.id = id;
         this.url = url;
         this.icoFont = icoFont;
     }
-    
-    
-    
-    
 }

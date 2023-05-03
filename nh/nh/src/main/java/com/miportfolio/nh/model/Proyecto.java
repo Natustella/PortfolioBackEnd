@@ -24,7 +24,8 @@ public class Proyecto {
     public Proyecto() {
     }
 
-    public Proyecto(String descripcion) {
+    public Proyecto(int id, String descripcion) {
+        this.id = id;
         this.descripcion = descripcion;
     }
 }

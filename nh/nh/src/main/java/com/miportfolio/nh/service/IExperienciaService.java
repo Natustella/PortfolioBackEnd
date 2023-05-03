@@ -12,4 +12,5 @@ public interface IExperienciaService {
     public Experiencia findExperiencia (int id); 
     public Optional<Experiencia> findById(int id);
     public boolean existsById(int id);
+    public void editarExperiencia(Experiencia experiencia);
 }

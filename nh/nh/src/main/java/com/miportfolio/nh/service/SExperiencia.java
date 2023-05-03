@@ -53,5 +53,23 @@ public class SExperiencia implements IExperienciaService {
     public boolean existsById(int id) {
         return rExp.existsById(id);
     }
+
+    @Override
+    public void editarExperiencia(Experiencia experiencia) {
+        Optional<Experiencia> exp = rExp.findById(experiencia.getId());
+        
+        if(exp.isPresent()){
+            Experiencia experien = exp.get();
+            experien.setPos(experiencia.getPos());
+            experien.setLogo(experiencia.getLogo());
+            experien.setEmpresa(experiencia.getEmpresa());
+            experien.setDesde(experiencia.getDesde());
+            experien.setHasta(experiencia.getHasta());
+            experien.setActividad(experiencia.getActividad());
+            rExp.save(experien);
+        }else{
+            throw new RuntimeException("Experience not fount");
+        }
+    }
     
 }

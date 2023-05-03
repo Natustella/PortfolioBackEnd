@@ -49,23 +49,10 @@ public class CExperiencia {
         iExp.deleteExperiencia(id);
     }
     
-    @PutMapping ("experiencia/editar/{id}")
-    public Experiencia editExperiencia (@PathVariable int id,
-                                        @RequestParam ("pos") String nuevaPos,
-                                        @RequestParam ("logo") String nuevoLogo,
-                                        @RequestParam ("empresa") String nuevaEmpresa,
-                                        @RequestParam ("desde") String nuevoDesde,
-                                        @RequestParam ("hasta") String nuevoHasta,
-                                        @RequestParam ("actividad") String nuevaActividad){
-        Experiencia exp = iExp.findExperiencia(id);
-        exp.setPos(nuevaPos);
-        exp.setLogo(nuevoLogo);
-        exp.setEmpresa(nuevaEmpresa);
-        exp.setDesde(nuevoDesde);
-        exp.setHasta(nuevoHasta);
-        exp.setActividad(nuevaActividad);
-        
-        iExp.saveExperiencia(exp);
-        return exp;
+        @PutMapping ("experiencia/editar/")
+    public void editarExperiencia(@RequestBody Experiencia experiencia){
+        iExp.editarExperiencia(experiencia);
     }
+    
+
 }

@@ -50,15 +50,7 @@ public class CSkills {
     }
 
     @PutMapping("skills/editar/{id}")
-    public Skills editSkills(@PathVariable int id,
-                             @RequestParam("percent") int nuevoPercent,
-                             @RequestParam ("habilidad") String nuevaHabilidad) {
-
-        Skills skills = iSkills.findSkills(id);
-        skills.setPercent(nuevoPercent);
-        skills.setHabilidad(nuevaHabilidad);
-
-        iSkills.saveSkills(skills);
-        return skills;
+    public void editarSkills (@RequestParam Skills skills) {
+        iSkills.editarSkills(skills);
     }
 }

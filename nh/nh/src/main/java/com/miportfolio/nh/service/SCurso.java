@@ -46,4 +46,20 @@ public class SCurso implements ICursoService{
         return rCurso.existsById(id);
     }
 
+    @Override
+    public void editarCurso(Curso curso) {
+        Optional <Curso> cur = rCurso.findById(curso.getId());
+        
+        if(cur.isPresent()){
+            Curso cursito = cur.get();
+            cursito.setTitulo(curso.getTitulo());
+            cursito.setImag(curso.getImag());
+            cursito.setDado(curso.getDado());
+            cursito.setFecha(curso.getFecha());
+            rCurso.save(cursito);
+        }else{
+            throw new RuntimeException("Curso not fount");
+        }
+    }
+
 }

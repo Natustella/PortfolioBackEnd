@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
+//import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -49,7 +49,12 @@ public class CCurso {
         iCurso.deleteCurso(id);
     }
     
-    @PutMapping ("curso/editar/{id}")
+    @PutMapping ("curso/editar/")
+    public void editarCurso(@RequestBody Curso curso){
+        iCurso.editarCurso(curso);
+    }
+    
+    /*@PutMapping ("curso/editar/{id}")
     public Curso editCurso (@PathVariable int id,
                                   @RequestParam ("titulo") String nuevoTitulo,
                                   @RequestParam ("imag") String nuevaImag,
@@ -64,6 +69,6 @@ public class CCurso {
         
         iCurso.saveCurso(curso);
         return curso;
-    }
+    }*/
     
 }

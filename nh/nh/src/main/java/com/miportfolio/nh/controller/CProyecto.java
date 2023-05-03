@@ -1,7 +1,6 @@
 package com.miportfolio.nh.controller;
 
 import com.miportfolio.nh.model.Proyecto;
-import com.miportfolio.nh.model.Skills;
 import com.miportfolio.nh.service.IProyectoService;
 import java.util.List;
 import java.util.Optional;
@@ -15,7 +14,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -50,14 +48,8 @@ public class CProyecto {
         iProyecto.deleteProyecto(id);
     }
     
-    @PutMapping ("proyecto/editar/{id}")
-    public Proyecto editProyecto (@PathVariable int id,
-                                  @RequestParam ("descripcion") String nuevaDescripcion){
-        
-        Proyecto proyecto = iProyecto.findProyecto(id);
-        proyecto.setDescripcion (nuevaDescripcion);
-        
-        iProyecto.saveProyecto(proyecto);
-        return proyecto;
+    @PutMapping ("proyecto/editar/")
+    public void editarProyecto(@RequestBody Proyecto proyecto) {
+        iProyecto.editarProyecto(proyecto);
     }
 }

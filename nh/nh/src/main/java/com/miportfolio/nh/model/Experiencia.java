@@ -44,7 +44,8 @@ public class Experiencia {
     public Experiencia() {
     }
 
-    public Experiencia(String pos, String logo, String empresa, String desde, String hasta, String actividad) {
+    public Experiencia(int id, String pos, String logo, String empresa, String desde, String hasta, String actividad) {
+        this.id = id;
         this.pos = pos;
         this.logo = logo;
         this.empresa = empresa;
