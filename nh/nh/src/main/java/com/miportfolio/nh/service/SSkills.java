@@ -46,4 +46,18 @@ public class SSkills implements ISkillsService{
         return rSkills.existsById(id);
     }
 
+    @Override
+    public void editarSkills(Skills skills) {
+        Optional <Skills> sk = rSkills.findById(skills.getId());
+        
+        if(sk.isPresent()) {
+            Skills habi = sk.get();
+            habi.setHabilidad(skills.getHabilidad());
+            habi.setPercent(skills.getPercent());
+            rSkills.save(habi);
+        }else{
+            throw new RuntimeException("Habilidad not fount");
+        }
+    }
+
 }

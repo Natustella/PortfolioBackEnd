@@ -46,4 +46,16 @@ public class SProyecto implements IProyectoService{
         return rProyecto.existsById(id);
     }
 
+    @Override
+    public void editarProyecto(Proyecto proyecto) {
+                Optional <Proyecto> pro = rProyecto.findById(proyecto.getId());
+        
+        if(pro.isPresent()){
+            Proyecto proyec = pro.get();
+            proyec.setDescripcion(proyecto.getDescripcion());
+            rProyecto.save(proyec);
+        }else{
+            throw new RuntimeException("Proyecto not fount");
+        }
+    }
 }

@@ -43,23 +43,9 @@ public class CPersona {
         iPers.deletePersona(id);
         return "La persona fue eliminada correctamente";
     }
-
-    @PutMapping("persona/editar/{id}")
-    public MPersona editPersona(@PathVariable int id,
-            @RequestParam("nombre") String nuevoNombre,
-            @RequestParam("position") String nuevaPosition,
-            @RequestParam("ubicacion") String nuevaUbicacion,
-            @RequestParam("imgMe") String nuevaImagen,
-            @RequestParam("sobreMi") String nuevoSobreMi) {
-        MPersona pers = iPers.findPersona(id);
-        pers.setNombre(nuevoNombre);
-        pers.setPosition(nuevaPosition);
-        pers.setUbicacion(nuevaUbicacion);
-        pers.setImgMe(nuevaImagen);
-        pers.setSobreMi(nuevoSobreMi);
-
-        iPers.savePersona(pers);
-        return pers;
+    
+    @PutMapping ("persona/editar/")
+    public void editarPersona(@RequestBody MPersona pers){
+        iPers.editarPersona(pers);
     }
-
 }

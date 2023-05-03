@@ -46,4 +46,18 @@ public class SRedes implements IRedesService {
         return rRedes.existsById(id);
     }
 
+    @Override
+    public void editarRedes(Redes redes) {
+        Optional<Redes> red = rRedes.findById(redes.getId());
+        
+        if(red.isPresent()){
+            Redes reditas = red.get();
+            reditas.setUrl(redes.getUrl());
+            reditas.setIcoFont(redes.getIcoFont());
+            rRedes.save(reditas);
+        }else{
+            throw new RuntimeException("Red not fount");
+        }
+    }
+
 }

@@ -12,4 +12,5 @@ public interface IProyectoService {
     public Proyecto findProyecto (int id);
     public Optional<Proyecto> findById(int id);
     public boolean existsById(int id);
+    public void editarProyecto(Proyecto proyecto);
 }

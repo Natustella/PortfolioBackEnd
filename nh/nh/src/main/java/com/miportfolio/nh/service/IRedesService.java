@@ -12,5 +12,5 @@ public interface IRedesService {
     public Redes findRedes (int id);
     public Optional<Redes> findById(int id);
     public boolean existsById(int id);
-    
+    public void editarRedes(Redes redes);
 }

@@ -12,4 +12,5 @@ public interface ICursoService {
     public Curso findCurso (int id);
     public Optional<Curso> findById(int id);
     public boolean existsById(int id);
+    public void editarCurso(Curso curso);
 }

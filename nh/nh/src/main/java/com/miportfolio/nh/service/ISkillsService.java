@@ -12,4 +12,5 @@ public interface ISkillsService {
     public Skills findSkills (int id);
     public Optional<Skills> findById(int id);
     public boolean existsById(int id);
+    public void editarSkills(Skills skills);
 }

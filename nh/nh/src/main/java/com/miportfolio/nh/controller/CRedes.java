@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -49,16 +48,9 @@ public class CRedes {
         iRedes.deleteRedes(id);
     }
     
-    @PutMapping("redes/editar/{id}")
-    public Redes editRedes(@PathVariable int id,
-                             @RequestParam("url") String nuevaUrl,
-                             @RequestParam ("icoFont") String nuevoIcoFont) {
-
-        Redes redes = iRedes.findRedes(id);
-        redes.setUrl(nuevaUrl);
-        redes.setIcoFont(nuevoIcoFont);
-
-        iRedes.saveRedes(redes);
-        return redes;
+    @PutMapping ("redes/editar/")
+    public void editarRedes(@RequestBody Redes redes){
+        iRedes.editarRedes(redes);
     }
+    
 }
