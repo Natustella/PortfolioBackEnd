@@ -49,8 +49,8 @@ public class CSkills {
         iSkills.deleteSkills(id);
     }
 
-    @PutMapping("skills/editar/{id}")
-    public void editarSkills (@RequestParam Skills skills) {
+    @PutMapping("skills/editar/")
+    public void editarSkills (@RequestBody Skills skills) {
         iSkills.editarSkills(skills);
     }
 }
